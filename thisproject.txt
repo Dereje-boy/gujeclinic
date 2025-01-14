@@ -1,0 +1,29 @@
+THIS FILE WILL EXPLAIN THE STRUCTURE OF THE PROJECT IN EYE BIRD VIEW
+
+1. CONFIG
+	This directory will hold all configuration files for sequelize nodemon or other the app itself if required
+2. MODELS
+	This directory will hold all models or schema of table in required in the app
+3. CONTROLLERS
+	This directory will hold code files for business logic, handling requests and facilitating request and response object
+4. ROUTES
+	This directory will hold codes that used to match routes with their corresponding controller code file
+5. MIDDLEWARES
+	This directory will hold middlewares codes like authentication, authorization, cookie verifying, token generation and the likes
+6. SERVICES
+	This directory will hold code files for email and notification or other required helper services
+7. UTILS
+	This directory will hold codes like error handling, date formatting and others
+8. DOTENV
+	This .env file will hold sensetive data that should be kept away from source code.
+
+
+THIS IS THE STRUCTURE OF THE PROJECT 
+	IF THE PROJECT IS UPDATED,
+ 		UPDATE THIS FILE TOO.
+
+
+
+
+
+
