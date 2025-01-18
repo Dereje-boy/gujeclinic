@@ -21,7 +21,7 @@ function crolemodel(sequelize, DataTypes){
 			}
 		},
 		{
-			freezeTableName:true,
+			tableName:'croles',
 		}
 	)
 }
