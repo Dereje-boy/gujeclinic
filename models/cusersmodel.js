@@ -41,18 +41,11 @@ function cusersmodel(sequelize, DataTypes){
 					len:[6,20]
 				}
 			},
-			role:{
-				type:DataTypes.STRING,
-				allowNull:false,
-				validate:{
-					len:[3,25]
-				}
-			}
-			
 		},{
 			tableName:'cusers'
 		}
 	)
+	return cusersmodelv;
 }
 
 module.exports = cusersmodel;

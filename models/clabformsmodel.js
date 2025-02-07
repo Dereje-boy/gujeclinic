@@ -1,5 +1,5 @@
-function clabformmodel(sequelize, DataTypes){
-	const clabformmodelv = sequelize.define(
+function clabformsmodel(sequelize, DataTypes){
+	const clabformsmodelv = sequelize.define(
 		'clabformsmodel',
 		{
 			id: {
@@ -41,21 +41,29 @@ function clabformmodel(sequelize, DataTypes){
 			priority:{
 				type:DataTypes.STRING,
 				defaultValue:'normal',
-				validate:{
-					isIn:['normal','urgent','STAT']
-				}
 			},
 			additionalnote:{
 				type: DataTypes.TEXT,
 				allowNull:false,
-				defaultValue:""
+				defaultValue:"",
+				columnName:"additionalNote"
 			}
 		},{
 			tableName:'clabforms'
 		}
 	);
 
-	return clabformmodelv;
+	clabformsmodelv.associate = (models)=>{
+		clabformsmodelv.hasOne(models.ctestresultsmodel,{
+			foreignKey:{
+				name: clabformsid,
+				allowNull: falsel
+			}
+		});
+	}
+		
+
+	return clabformsmodelv;
 }
 
-module.exports = clabformmodel
+module.exports = clabformsmodel

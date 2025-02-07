@@ -1,5 +1,5 @@
-function crolemodel(sequelize, DataTypes){
-	const crolemodelv = sequelize.define(
+function crolesmodel(sequelize, DataTypes){
+	const crolesmodelv = sequelize.define(
 		'crolesmodel',{
 			id : {
 				type: DataTypes.INTEGER,
@@ -24,6 +24,7 @@ function crolemodel(sequelize, DataTypes){
 			tableName:'croles',
 		}
 	)
+	return crolesmodelv;
 }
 
-module.exports = crolemodel
+module.exports = crolesmodel

@@ -1,16 +1,20 @@
-function ctestresults(sequelize, DataTypes){
-	const ctestresultsv = sequelize.define(
+function ctestresultsmodel(sequelize, DataTypes){
+	const ctestresultsmodelv = sequelize.define(
 		'ctestresultsmodel',{
 			id:{
 				type: DataTypes.INTEGER,
 				primaryKey:true,
 				autoIncrement: true
 			},
-			labid:{
+			clabformsid:{
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				columnName:'labID',
-				comment:"This column is required to hold the reference of the lab the doctor requests were registered on."
+				comment:"This column is required to hold the reference of the lab the doctor requests were registered on.",
+				references:{
+					model: 'clabforms',
+					key:'id'
+				}
 			},
 			testresult: {
 				type: DataTypes.TEXT,
@@ -28,17 +32,25 @@ function ctestresults(sequelize, DataTypes){
 				},
 				comment:"This column is required to hold the lab technician id for the sake of knowing who make the laboratory test"
 			},
-			labnote:{
+			additionalnote:{
 				type:DataTypes.TEXT,
 				allowNull: false,
-				defaultValue: ''
+				defaultValue: '',
+				columnName: "additionalNote"
 			}
 		},{
 			tableName:'ctestresults'
 		}
 	);
 
-	return ctestresultsv;
+	ctestresultsmodelv.associate = (models)=>{
+		ctestresultsmodel.belognsTo(models.clabformsmodel, {
+			foreignKey:'clabformsid',
+			as:'clabforms' 
+		})
+	}
+
+	return ctestresultsmodelv;
 }
 
-module.exports = ctestresults;
+module.exports = ctestresultsmodel;
